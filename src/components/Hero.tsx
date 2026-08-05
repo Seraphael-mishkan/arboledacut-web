@@ -7,8 +7,8 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen min-h-[650px] flex flex-col justify-between overflow-hidden bg-black">
-      {/* Background Video — 100% Natural without any color/gradient overlay & 100% Fixed Scale */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Background Video — Full visibility on mobile (object-contain) and cover on desktop (sm:object-cover) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none flex items-center justify-center bg-black">
         <video
           src="/hero-video.mp4"
           autoPlay
@@ -16,7 +16,7 @@ export default function Hero() {
           playsInline
           loop={false}
           onEnded={() => setVideoEnded(true)}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain sm:object-cover"
         />
       </div>
 
