@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Leaf, Phone } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 
 const navLinks = [
   { label: 'Servicios', href: '#servicios' },
@@ -35,19 +35,12 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <a href="#" className="flex items-center gap-2 group">
-              <div className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                scrolled 
-                  ? 'bg-emerald-600 shadow-lg shadow-emerald-600/30' 
-                  : 'bg-white/15 border border-white/20'
-              }`}>
-                <Leaf className={`w-5 h-5 transition-colors ${scrolled ? 'text-white' : 'text-emerald-300'}`} />
-              </div>
-              <span className={`text-xl font-bold tracking-tight transition-colors ${
-                scrolled ? 'text-slate-900' : 'text-white'
-              }`}>
-                Arboleda<span className="text-emerald-400">cut</span>
-              </span>
+            <a href="#" className="flex items-center gap-3 group">
+              <img
+                src="/logo.png"
+                alt="Arboledacut Logo"
+                className="h-10 sm:h-12 max-h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md"
+              />
             </a>
 
             {/* Desktop Nav */}
