@@ -28,17 +28,17 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 lg:px-8 pt-3 sm:pt-4 transition-all duration-500 pointer-events-none"
       >
-        <div className="max-w-6xl mx-auto pointer-events-auto">
-          {/* Long Oval Pill Bar (Barra ovalada larga) */}
+        <div className="max-w-5xl mx-auto pointer-events-auto">
+          {/* Long Oval Pill Bar (Barra ovalada larga equilibrada) */}
           <div
-            className={`flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all duration-500 ${
+            className={`flex items-center justify-between px-5 sm:px-7 py-2.5 sm:py-3 rounded-full transition-all duration-500 ${
               scrolled
-                ? 'bg-emerald-950/95 backdrop-blur-2xl border border-emerald-500/40 shadow-2xl shadow-black/50'
-                : 'bg-emerald-950/85 backdrop-blur-xl border border-emerald-500/25 shadow-xl shadow-emerald-950/60'
+                ? 'bg-emerald-950/95 backdrop-blur-2xl border border-emerald-500/40 shadow-2xl shadow-black/60'
+                : 'bg-gradient-to-r from-emerald-950/90 via-emerald-900/90 to-emerald-950/90 backdrop-blur-xl border border-emerald-500/30 shadow-2xl shadow-black/40'
             }`}
           >
             {/* Logo */}
-            <a href="#" className="flex items-center gap-3 group relative z-10 my-1">
+            <a href="#" className="flex items-center gap-3 group relative z-10 my-0.5">
               <img
                 src="/logo.png"
                 alt="Arboledacut Logo"
@@ -47,12 +47,12 @@ export default function Navbar() {
             </a>
 
             {/* Desktop Nav */}
-            <div className="hidden lg:flex items-center gap-1">
+            <div className="hidden lg:flex items-center gap-1.5">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="px-4 py-1.5 rounded-full text-sm font-medium text-emerald-100/90 hover:text-white hover:bg-emerald-800/40 transition-all duration-300 hover:scale-105"
+                  className="px-4 py-2 rounded-full text-base font-semibold text-emerald-100/90 hover:text-white hover:bg-emerald-800/50 transition-all duration-300 hover:scale-105"
                 >
                   {link.label}
                 </a>
@@ -63,14 +63,14 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center gap-3">
               <a
                 href="tel:+521234567890"
-                className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium text-emerald-200/90 hover:text-white hover:bg-white/10 transition-all"
+                className="flex items-center gap-2 px-4 py-2 rounded-full text-base font-semibold text-emerald-200/95 hover:text-white hover:bg-white/10 transition-all"
               >
                 <Phone className="w-4 h-4 text-emerald-400" />
                 Llamar
               </a>
               <a
                 href="#contacto"
-                className="px-5 py-2 bg-emerald-500 hover:bg-emerald-400 text-white text-sm font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/30 active:scale-95"
+                className="px-6 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-white text-base font-bold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-emerald-500/40 active:scale-95 shadow-md shadow-emerald-500/30"
               >
                 Cotización Gratis
               </a>
@@ -79,7 +79,7 @@ export default function Navbar() {
             {/* Mobile menu button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 rounded-full text-emerald-100 hover:bg-emerald-800/40 transition-colors"
+              className="lg:hidden p-2 rounded-full text-emerald-100 hover:bg-emerald-800/50 transition-colors"
               aria-label="Toggle menu"
             >
               {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
