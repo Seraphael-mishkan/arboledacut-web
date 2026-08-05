@@ -38,11 +38,11 @@ export default function Navbar() {
             }`}
           >
             {/* Logo */}
-            <a href="#" className="flex items-center gap-3 group">
+            <a href="#" className="flex items-center gap-3 group relative z-10 my-1">
               <img
                 src="/logo.png"
                 alt="Arboledacut Logo"
-                className="h-8 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow"
+                className="h-14 sm:h-16 lg:h-20 w-auto object-contain transition-all duration-300 group-hover:scale-110 drop-shadow-2xl -my-4 sm:-my-5 filter brightness-105"
               />
             </a>
 
