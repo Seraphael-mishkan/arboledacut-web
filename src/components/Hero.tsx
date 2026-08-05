@@ -33,12 +33,12 @@ export default function Hero() {
         <motion.div
           animate={{ scale: videoEnded ? 1 : 0.9, opacity: videoEnded ? 1 : 0 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col items-center text-center -mt-16"
+          className="flex flex-col items-center text-center -mt-16 w-full max-w-sm px-2"
         >
           <img
             src="/logo.png"
             alt="Arboledacut Emblem"
-            className="w-44 h-44 sm:w-56 sm:h-56 object-contain drop-shadow-xl mb-3 filter brightness-105"
+            className="w-[78vw] max-w-[320px] aspect-square object-contain drop-shadow-2xl mb-3 filter brightness-105"
           />
           <span className="text-emerald-950 font-extrabold text-2xl tracking-tight">Arboleda<span className="text-emerald-600">cut</span></span>
           <p className="text-slate-600 text-xs sm:text-sm mt-1 font-medium">Servicios Profesionales para Quintas</p>

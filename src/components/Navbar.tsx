@@ -28,7 +28,7 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 lg:px-8 pt-3 sm:pt-4 transition-all duration-500 pointer-events-none"
       >
-        <div className="w-fit lg:w-full lg:max-w-5xl mx-auto pointer-events-auto">
+        <div className="w-fit mr-auto lg:mx-auto lg:w-full lg:max-w-5xl pointer-events-auto">
           {/* Long Oval Pill Bar (Contracted pill on mobile, full bar on PC) */}
           <div
             className={`flex items-center justify-between gap-3 sm:gap-6 px-3.5 sm:px-6 py-1.5 sm:py-2.5 lg:py-3 rounded-full transition-all duration-500 ${
