@@ -28,10 +28,10 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 lg:px-8 pt-3 sm:pt-4 transition-all duration-500 pointer-events-none"
       >
-        <div className="max-w-xs lg:max-w-5xl mx-auto pointer-events-auto">
-          {/* Long Oval Pill Bar (Barra ovalada larga equilibrada en PC, compacta en móvil) */}
+        <div className="w-fit lg:w-full lg:max-w-5xl mx-auto pointer-events-auto">
+          {/* Long Oval Pill Bar (Contracted pill on mobile, full bar on PC) */}
           <div
-            className={`flex items-center justify-between px-4 sm:px-6 py-2 sm:py-2.5 lg:py-3 rounded-full transition-all duration-500 ${
+            className={`flex items-center justify-between gap-3 sm:gap-6 px-3.5 sm:px-6 py-1.5 sm:py-2.5 lg:py-3 rounded-full transition-all duration-500 ${
               scrolled
                 ? 'bg-emerald-950/95 backdrop-blur-2xl border border-emerald-500/40 shadow-2xl shadow-black/60'
                 : 'bg-gradient-to-r from-emerald-950/90 via-emerald-900/90 to-emerald-950/90 backdrop-blur-xl border border-emerald-500/30 shadow-2xl shadow-black/40'

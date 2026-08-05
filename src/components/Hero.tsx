@@ -7,8 +7,12 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen min-h-[650px] flex flex-col justify-between overflow-hidden bg-black">
-      {/* Background Video — Full visibility on mobile (object-contain) and cover on desktop (sm:object-cover) */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none flex items-center justify-center bg-black">
+      {/* Background Video — object-cover on all screens, fades out on mobile when video ends */}
+      <div
+        className={`absolute inset-0 overflow-hidden pointer-events-none transition-opacity duration-700 ${
+          videoEnded ? 'opacity-0 sm:opacity-100' : 'opacity-100'
+        }`}
+      >
         <video
           src="/hero-video.mp4"
           autoPlay
@@ -16,8 +20,29 @@ export default function Hero() {
           playsInline
           loop={false}
           onEnded={() => setVideoEnded(true)}
-          className="w-full h-full object-contain sm:object-cover"
+          className="w-full h-full object-cover"
         />
+      </div>
+
+      {/* Mobile-Only White End Screen with Centered Round Logo */}
+      <div
+        className={`absolute inset-0 z-0 sm:hidden transition-opacity duration-700 bg-white flex flex-col items-center justify-center p-6 ${
+          videoEnded ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        <motion.div
+          animate={{ scale: videoEnded ? 1 : 0.9, opacity: videoEnded ? 1 : 0 }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col items-center text-center -mt-16"
+        >
+          <img
+            src="/logo.png"
+            alt="Arboledacut Emblem"
+            className="w-44 h-44 sm:w-56 sm:h-56 object-contain drop-shadow-xl mb-3 filter brightness-105"
+          />
+          <span className="text-emerald-950 font-extrabold text-2xl tracking-tight">Arboleda<span className="text-emerald-600">cut</span></span>
+          <p className="text-slate-600 text-xs sm:text-sm mt-1 font-medium">Servicios Profesionales para Quintas</p>
+        </motion.div>
       </div>
 
       {/* Top Header Text Section — Smoothly fades out without DOM collapse or scale shift */}
@@ -53,14 +78,14 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Bottom CTA Buttons Section — Positioned low down, near bottom wave, below "Arboledacut" 3D text */}
+      {/* Bottom CTA Buttons Section — Positioned low down, near bottom wave */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 sm:pb-24 lg:pb-28 text-center flex flex-col items-center w-full mt-auto">
         <motion.div
           animate={{
             y: videoEnded ? 10 : 0,
           }}
           transition={{ duration: 0.8, ease: 'easeInOut' }}
-          className="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto"
+          className="flex flex-col sm:flex-row gap-3.5 sm:gap-4 justify-center w-full sm:w-auto"
         >
           <a
             href="#contacto"
@@ -71,7 +96,11 @@ export default function Hero() {
           </a>
           <a
             href="#servicios"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 sm:py-4 bg-emerald-950/85 hover:bg-emerald-900/95 backdrop-blur-md border border-emerald-500/40 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 text-base sm:text-lg shadow-xl"
+            className={`inline-flex items-center justify-center gap-2 px-8 py-3.5 sm:py-4 transition-all duration-300 hover:scale-105 text-base sm:text-lg shadow-xl font-semibold rounded-2xl ${
+              videoEnded
+                ? 'bg-emerald-950/90 text-white border border-emerald-500/40 sm:bg-emerald-950/85'
+                : 'bg-emerald-950/85 hover:bg-emerald-900/95 backdrop-blur-md border border-emerald-500/40 text-white'
+            }`}
           >
             Ver Servicios
           </a>
@@ -101,9 +130,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               onClick={() => setVideoEnded(false)}
-              className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-200/90 hover:text-white bg-emerald-950/70 backdrop-blur-md px-3.5 py-1 rounded-full border border-emerald-500/30 transition-all hover:bg-emerald-900/90 shadow-md"
+              className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-900 sm:text-emerald-200/90 hover:text-emerald-700 sm:hover:text-white bg-emerald-100 sm:bg-emerald-950/70 backdrop-blur-md px-3.5 py-1 rounded-full border border-emerald-300 sm:border-emerald-500/30 transition-all hover:bg-emerald-200 sm:hover:bg-emerald-900/90 shadow-md"
             >
-              <RefreshCw className="w-3 h-3 text-emerald-400" />
+              <RefreshCw className="w-3 h-3 text-emerald-600 sm:text-emerald-400" />
               Mostrar Título
             </motion.button>
           )}
@@ -119,5 +148,6 @@ export default function Hero() {
     </section>
   );
 }
+
 
 
