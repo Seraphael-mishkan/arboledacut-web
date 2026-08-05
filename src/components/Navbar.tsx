@@ -26,20 +26,23 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? 'bg-white/80 backdrop-blur-xl shadow-lg shadow-black/5 border-b border-white/50'
-            : 'bg-transparent'
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 lg:px-8 pt-3 sm:pt-4 transition-all duration-500 pointer-events-none"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="max-w-6xl mx-auto pointer-events-auto">
+          {/* Long Oval Pill Bar (Barra ovalada larga) */}
+          <div
+            className={`flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all duration-500 ${
+              scrolled
+                ? 'bg-emerald-950/95 backdrop-blur-2xl border border-emerald-500/40 shadow-2xl shadow-black/50'
+                : 'bg-emerald-950/85 backdrop-blur-xl border border-emerald-500/25 shadow-xl shadow-emerald-950/60'
+            }`}
+          >
             {/* Logo */}
             <a href="#" className="flex items-center gap-3 group">
               <img
                 src="/logo.png"
                 alt="Arboledacut Logo"
-                className="h-10 sm:h-12 max-h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md"
+                className="h-8 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow"
               />
             </a>
 
@@ -49,11 +52,7 @@ export default function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105 ${
-                    scrolled
-                      ? 'text-slate-600 hover:text-emerald-700 hover:bg-emerald-50'
-                      : 'text-white/80 hover:text-white hover:bg-white/10'
-                  }`}
+                  className="px-4 py-1.5 rounded-full text-sm font-medium text-emerald-100/90 hover:text-white hover:bg-emerald-800/40 transition-all duration-300 hover:scale-105"
                 >
                   {link.label}
                 </a>
@@ -64,16 +63,14 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center gap-3">
               <a
                 href="tel:+521234567890"
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                  scrolled ? 'text-slate-600 hover:text-emerald-700' : 'text-white/80 hover:text-white'
-                }`}
+                className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium text-emerald-200/90 hover:text-white hover:bg-white/10 transition-all"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-4 h-4 text-emerald-400" />
                 Llamar
               </a>
               <a
                 href="#contacto"
-                className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-600/30 active:scale-95"
+                className="px-5 py-2 bg-emerald-500 hover:bg-emerald-400 text-white text-sm font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/30 active:scale-95"
               >
                 Cotización Gratis
               </a>
@@ -82,9 +79,7 @@ export default function Navbar() {
             {/* Mobile menu button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className={`lg:hidden p-2 rounded-lg transition-colors ${
-                scrolled ? 'text-slate-700 hover:bg-slate-100' : 'text-white hover:bg-white/10'
-              }`}
+              className="lg:hidden p-2 rounded-full text-emerald-100 hover:bg-emerald-800/40 transition-colors"
               aria-label="Toggle menu"
             >
               {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -101,9 +96,9 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-x-0 top-16 z-40 bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-xl lg:hidden"
+            className="fixed inset-x-4 top-20 z-40 bg-emerald-950/95 backdrop-blur-2xl border border-emerald-500/30 shadow-2xl rounded-3xl lg:hidden max-w-md mx-auto overflow-hidden"
           >
-            <div className="px-4 py-6 space-y-1">
+            <div className="px-6 py-6 space-y-1">
               {navLinks.map((link, i) => (
                 <motion.a
                   key={link.href}
@@ -112,7 +107,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
                   onClick={() => setMobileOpen(false)}
-                  className="block px-4 py-3 text-slate-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-xl font-medium transition-colors"
+                  className="block px-4 py-3 text-emerald-100 hover:text-white hover:bg-emerald-800/40 rounded-2xl font-medium transition-colors"
                 >
                   {link.label}
                 </motion.a>
@@ -120,15 +115,15 @@ export default function Navbar() {
               <div className="pt-4 space-y-2">
                 <a
                   href="tel:+521234567890"
-                  className="flex items-center justify-center gap-2 w-full px-4 py-3 border border-emerald-200 text-emerald-700 rounded-xl font-medium hover:bg-emerald-50 transition-colors"
+                  className="flex items-center justify-center gap-2 w-full px-4 py-3 border border-emerald-500/30 text-emerald-200 rounded-2xl font-medium hover:bg-emerald-800/30 transition-colors"
                 >
-                  <Phone className="w-4 h-4" />
+                  <Phone className="w-4 h-4 text-emerald-400" />
                   Llamar Ahora
                 </a>
                 <a
                   href="#contacto"
                   onClick={() => setMobileOpen(false)}
-                  className="block w-full px-4 py-3 bg-emerald-600 text-white text-center rounded-xl font-semibold hover:bg-emerald-700 transition-colors"
+                  className="block w-full px-4 py-3 bg-emerald-500 text-white text-center rounded-2xl font-semibold hover:bg-emerald-400 transition-colors shadow-lg shadow-emerald-500/30"
                 >
                   Cotización Gratis
                 </a>
@@ -140,3 +135,4 @@ export default function Navbar() {
     </>
   );
 }
+
