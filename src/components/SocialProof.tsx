@@ -2,10 +2,10 @@ import { motion } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const stats = [
-  { value: '50+', label: 'Propiedades Atendidas', icon: '🏡' },
-  { value: '98%', label: 'Clientes Satisfechos', icon: '⭐' },
-  { value: '5+', label: 'Años de Experiencia', icon: '🏆' },
-  { value: '24/7', label: 'Soporte Disponible', icon: '📞' },
+  { value: '50+', label: 'Propiedades Atendidas', icon: '/icons/casa.png' },
+  { value: '98%', label: 'Clientes Satisfechos', icon: '/icons/estrella.png' },
+  { value: '5+', label: 'Años de Experiencia', icon: '/icons/trofeo.png' },
+  { value: '24/7', label: 'Soporte Disponible', icon: '/icons/telefonomensaje.png' },
 ];
 
 export default function SocialProof() {
@@ -21,9 +21,15 @@ export default function SocialProof() {
               initial={{ opacity: 0, y: 30 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group text-center p-6 rounded-2xl hover:bg-emerald-50/50 transition-all duration-300 hover:scale-105 cursor-default"
+              className="group text-center p-6 rounded-2xl hover:bg-emerald-50/50 transition-all duration-300 hover:scale-105 cursor-default flex flex-col items-center justify-center"
             >
-              <div className="text-4xl mb-3">{stat.icon}</div>
+              <div className="w-14 h-14 sm:w-16 sm:h-16 mb-3 flex items-center justify-center p-2 rounded-2xl bg-emerald-50/80 group-hover:bg-emerald-100/90 group-hover:scale-110 transition-all duration-300 shadow-sm">
+                <img
+                  src={stat.icon}
+                  alt={stat.label}
+                  className="w-full h-full object-contain filter drop-shadow-sm"
+                />
+              </div>
               <div className="text-3xl lg:text-4xl font-bold text-slate-900 mb-1">
                 {stat.value}
               </div>
