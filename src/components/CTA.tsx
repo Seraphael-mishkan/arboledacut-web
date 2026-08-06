@@ -71,7 +71,7 @@ export default function CTA() {
                 { icon: Phone, text: '7353346855', label: 'Llámanos' },
                 { icon: MessageCircle, text: 'WhatsApp disponible', label: 'Escríbenos' },
                 { icon: MapPin, text: 'Yautepec Morelos Mexico', label: 'Cobertura' },
-                { icon: Clock, text: 'Lun-Sáb 7:00am - 7:00pm', label: 'Horario' },
+                { icon: Clock, text: 'Lun-Sáb 8:00am - 5:00pm', label: 'Horario' },
               ].map((item, i) => (
                 <motion.div
                   key={i}
