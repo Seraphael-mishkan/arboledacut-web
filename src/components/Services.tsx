@@ -1,52 +1,102 @@
 import { motion } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { Leaf, Droplets, TreePine, Fence, Trees } from 'lucide-react';
+import { Leaf, Droplets, TreePine, Fence, Trees, Check } from 'lucide-react';
 
 const services = [
   {
     icon: Leaf,
-    title: 'Cuidado de Jardines',
-    description: 'Poda, diseño paisajístico y mantenimiento de áreas verdes.',
-    image: 'https://images.pexels.com/photos/28180214/pexels-photo-28180214.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
-    color: 'from-emerald-500 to-green-600',
-    bgLight: 'bg-emerald-50',
-    textColor: 'text-emerald-600',
+    title: 'Cuidado de',
+    titleHighlight: 'Jardines',
+    description:
+      'Mantenemos tus áreas verdes impecables con un servicio profesional y constante que transforma tu propiedad.',
+    features: [
+      'Poda de pasto y arbustos',
+      'Diseño paisajístico',
+      'Cajetes a jardineras',
+      'Riego programado',
+      'Fertilización y abonado',
+    ],
+    image:
+      'https://images.pexels.com/photos/28180214/pexels-photo-28180214.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=800',
+    gradient: 'from-emerald-600 to-green-700',
+    accentColor: '#10b981',
+    iconBg: 'bg-emerald-500',
   },
   {
     icon: Droplets,
-    title: 'Limpieza de Alberca',
-    description: 'Mantenimiento químico, limpieza de filtros, aspirado y agua cristalina garantizada.',
-    image: 'https://images.pexels.com/photos/8134746/pexels-photo-8134746.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
-    color: 'from-sky-500 to-blue-600',
-    bgLight: 'bg-sky-50',
-    textColor: 'text-sky-600',
+    title: 'Limpieza de',
+    titleHighlight: 'Alberca',
+    description:
+      'Agua cristalina garantizada. Nos encargamos del mantenimiento completo para que solo te preocupes por disfrutar.',
+    features: [
+      'Aspirado y cepillado de paredes',
+      'Limpieza de filtros y bombas',
+      'Mantenimiento químico del agua',
+      'Revisión semanal de equipos',
+      'Reporte de estado por visita',
+    ],
+    image:
+      'https://images.pexels.com/photos/8134746/pexels-photo-8134746.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=800',
+    gradient: 'from-sky-600 to-blue-700',
+    accentColor: '#0ea5e9',
+    iconBg: 'bg-sky-500',
   },
   {
     icon: TreePine,
-    title: 'Poda de Árboles',
-    description: 'Poda profesional y segura de árboles. Retiro de ramas y troncos incluido.',
-    image: 'https://images.pexels.com/photos/7174105/pexels-photo-7174105.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
-    color: 'from-teal-500 to-emerald-600',
-    bgLight: 'bg-teal-50',
-    textColor: 'text-teal-600',
+    title: 'Poda de',
+    titleHighlight: 'Árboles',
+    description:
+      'Servicio profesional y seguro para el cuidado de tus árboles. Trabajamos con equipo especializado.',
+    features: [
+      'Poda de formación y saneamiento',
+      'Derribo controlado',
+      'Retiro de ramas y troncos',
+      'Limpieza del área de trabajo',
+      'Personal capacitado y asegurado',
+    ],
+    image:
+      'https://images.pexels.com/photos/7174105/pexels-photo-7174105.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=800',
+    gradient: 'from-teal-600 to-emerald-700',
+    accentColor: '#14b8a6',
+    iconBg: 'bg-teal-500',
   },
   {
     icon: Trees,
-    title: 'Limpieza de Terrenos y Maleza',
-    description: 'Desmonte, poda de maleza y limpieza de terrenos rurales y quintas.',
-    image: 'https://images.pexels.com/photos/19084142/pexels-photo-19084142.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
-    color: 'from-lime-600 to-emerald-700',
-    bgLight: 'bg-lime-50',
-    textColor: 'text-lime-600',
+    title: 'Limpieza de',
+    titleHighlight: 'Terrenos',
+    description:
+      'Desmonte y limpieza completa de terrenos rurales, quintas abandonadas y lotes con exceso de vegetación.',
+    features: [
+      'Desmonte y chapeo',
+      'Poda de maleza y hierba alta',
+      'Limpieza de terrenos rurales',
+      'Preparación de terrenos',
+      'Retiro de escombro vegetal',
+    ],
+    image:
+      'https://images.pexels.com/photos/19084142/pexels-photo-19084142.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=800',
+    gradient: 'from-lime-600 to-green-700',
+    accentColor: '#84cc16',
+    iconBg: 'bg-lime-600',
   },
   {
     icon: Fence,
-    title: 'Mantenimiento General',
-    description: 'Reparaciones menores, pintura, impermeabilización y mantenimiento preventivo de tu propiedad.',
-    image: 'https://images.pexels.com/photos/8143683/pexels-photo-8143683.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
-    color: 'from-amber-500 to-orange-600',
-    bgLight: 'bg-amber-50',
-    textColor: 'text-amber-600',
+    title: 'Mantenimiento',
+    titleHighlight: 'General',
+    description:
+      'Reparaciones, pintura e impermeabilización. Mantenemos tu propiedad en las mejores condiciones posibles.',
+    features: [
+      'Reparaciones menores',
+      'Pintura interior y exterior',
+      'Impermeabilización',
+      'Mantenimiento preventivo',
+      'Inspección general de propiedad',
+    ],
+    image:
+      'https://images.pexels.com/photos/8143683/pexels-photo-8143683.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=800',
+    gradient: 'from-amber-500 to-orange-600',
+    accentColor: '#f59e0b',
+    iconBg: 'bg-amber-500',
   },
 ];
 
@@ -54,7 +104,11 @@ export default function Services() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="servicios" className="py-24 lg:py-32 bg-slate-50/50 relative overflow-hidden" ref={ref}>
+    <section
+      id="servicios"
+      className="py-24 lg:py-32 bg-slate-50/50 relative overflow-hidden"
+      ref={ref}
+    >
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-100/30 rounded-full blur-3xl -translate-y-1/2" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-emerald-100/20 rounded-full blur-3xl translate-y-1/2" />
@@ -65,58 +119,93 @@ export default function Services() {
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16 lg:mb-20"
+          className="text-center max-w-4xl mx-auto mb-16 lg:mb-20"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-100 text-emerald-700 rounded-full text-sm font-semibold mb-4">
+          <span className="inline-flex items-center gap-2 px-5 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-bold mb-6 tracking-wide uppercase">
             <Leaf className="w-4 h-4" />
             Nuestros Servicios
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mt-4 leading-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 mt-4 leading-[1.1] tracking-tight">
             Todo lo que tu propiedad{' '}
             <span className="text-gradient">necesita</span>
           </h2>
-          <p className="mt-6 text-lg text-slate-500 leading-relaxed">
-            Quintas, residencias, casas condominales, ranchos y fraccionamientos completos.
+          <p className="mt-6 text-lg sm:text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto">
+            Quintas, residencias, casas condominales, ranchos y fraccionamientos
+            completos.
             <br className="hidden sm:block" />
-            Ofrecemos un servicio integral para que tu propiedad luzca perfecta en todo momento.
+            Ofrecemos un servicio integral para que tu propiedad luzca perfecta
+            en todo momento.
           </p>
         </motion.div>
 
         {/* Services grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7 lg:gap-9">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 50 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-emerald-600/10 transition-all duration-500 hover:-translate-y-2 border border-slate-100"
+              transition={{ duration: 0.6, delay: index * 0.12 }}
+              className="group relative bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:shadow-emerald-600/15 transition-all duration-500 hover:-translate-y-3 border border-slate-100/80"
             >
-              {/* Image */}
-              <div className="relative h-48 overflow-hidden">
+              {/* Image with overlay */}
+              <div className="relative h-52 sm:h-56 overflow-hidden">
                 <img
                   src={service.image}
-                  alt={service.title}
+                  alt={service.title + ' ' + service.titleHighlight}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
                 />
-                <div className={`absolute inset-0 bg-gradient-to-t ${service.color} opacity-60 mix-blend-multiply`} />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                <div className="absolute top-4 left-4 w-12 h-12 glass rounded-2xl flex items-center justify-center">
-                  <service.icon className="w-6 h-6 text-white" />
+                <div
+                  className={`absolute inset-0 bg-gradient-to-t ${service.gradient} opacity-70 mix-blend-multiply`}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+
+                {/* Icon badge */}
+                <div
+                  className={`absolute top-5 left-5 w-14 h-14 ${service.iconBg} rounded-2xl flex items-center justify-center shadow-lg shadow-black/20`}
+                >
+                  <service.icon className="w-7 h-7 text-white" strokeWidth={2} />
+                </div>
+
+                {/* Title on image */}
+                <div className="absolute bottom-5 left-5 right-5">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight drop-shadow-lg">
+                    {service.title}{' '}
+                    <span
+                      style={{
+                        color: service.accentColor,
+                        textShadow: `0 0 20px ${service.accentColor}60`,
+                      }}
+                    >
+                      {service.titleHighlight}
+                    </span>
+                  </h3>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-emerald-700 transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-slate-500 text-sm leading-relaxed">
+              <div className="p-6 sm:p-7">
+                <p className="text-slate-600 text-base leading-relaxed mb-5">
                   {service.description}
                 </p>
-                <div className="mt-4 flex items-center gap-2 text-emerald-600 font-medium text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                  Más información →
-                </div>
+
+                {/* Features list */}
+                <ul className="space-y-2.5">
+                  {service.features.map((feature, i) => (
+                    <li
+                      key={i}
+                      className="flex items-start gap-2.5 text-sm sm:text-base text-slate-700"
+                    >
+                      <Check
+                        className="w-4 h-4 mt-0.5 flex-shrink-0"
+                        style={{ color: service.accentColor }}
+                        strokeWidth={3}
+                      />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </motion.div>
           ))}
