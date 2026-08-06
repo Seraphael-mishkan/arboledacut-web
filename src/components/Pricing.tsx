@@ -47,8 +47,7 @@ const plans = [
     features: [
       'Todo lo del plan Premium',
       'Visitas diarias disponibles',
-      'Diseño paisajístico incluido',
-      'Mantenimiento de equipos',
+      'Diseño paisajístico',
       'Limpieza de terrenos y maleza',
       'Gerente de cuenta dedicado',
       'Supervisión en sitio',
