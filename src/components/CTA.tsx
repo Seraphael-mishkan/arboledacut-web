@@ -79,7 +79,7 @@ export default function CTA() {
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-400/15 text-emerald-300 border border-emerald-400/20 rounded-full text-sm font-semibold mb-6">
+            <span className="inline-flex items-center gap-2.5 px-6 py-2.5 bg-emerald-400/20 text-emerald-200 border border-emerald-300/30 rounded-full text-base sm:text-lg font-bold shadow-md shadow-emerald-900/30 mb-6">
               Cotización Gratuita
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">

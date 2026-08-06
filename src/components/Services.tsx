@@ -119,8 +119,8 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-4xl mx-auto mb-16 lg:mb-20"
         >
-          <span className="inline-flex items-center gap-2 px-5 py-2 bg-emerald-100 text-emerald-700 rounded-full text-sm font-bold mb-6 tracking-wide uppercase">
-            <Leaf className="w-4 h-4" />
+          <span className="inline-flex items-center gap-2.5 px-6 py-2.5 bg-emerald-100/90 text-emerald-800 border border-emerald-300/80 rounded-full text-base sm:text-lg font-bold shadow-sm shadow-emerald-500/10 mb-6 tracking-wide uppercase">
+            <Leaf className="w-5 h-5 text-emerald-700" />
             Nuestros Servicios
           </span>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 mt-4 leading-[1.1] tracking-tight">

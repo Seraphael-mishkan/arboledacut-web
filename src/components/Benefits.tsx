@@ -52,7 +52,7 @@ export default function Benefits() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16 lg:mb-20"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/15 text-emerald-400 border border-emerald-500/20 rounded-full text-sm font-semibold mb-4">
+          <span className="inline-flex items-center gap-2.5 px-6 py-2.5 bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 rounded-full text-base sm:text-lg font-bold shadow-md shadow-emerald-900/30 mb-6">
             Beneficios Exclusivos
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-4 leading-tight">
