@@ -47,7 +47,7 @@ const plans = [
       'Visitas diarias disponibles',
       'Diseño paisajístico incluido',
       'Mantenimiento de equipos',
-      'Preparación para eventos',
+      'Limpieza de terrenos y maleza',
       'Gerente de cuenta dedicado',
       'Supervisión en sitio',
     ],

@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { Leaf, Droplets, SprayCan, TreePine, Fence, Sun } from 'lucide-react';
+import { Leaf, Droplets, TreePine, Fence, Trees } from 'lucide-react';
 
 const services = [
   {
     icon: Leaf,
     title: 'Cuidado de Jardines',
-    description: 'Poda, diseño paisajístico, sistema de riego, control de plagas y mantenimiento de áreas verdes.',
+    description: 'Poda, diseño paisajístico y mantenimiento de áreas verdes.',
     image: 'https://images.pexels.com/photos/28180214/pexels-photo-28180214.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
     color: 'from-emerald-500 to-green-600',
     bgLight: 'bg-emerald-50',
@@ -15,7 +15,7 @@ const services = [
   {
     icon: Droplets,
     title: 'Limpieza de Alberca',
-    description: 'Mantenimiento químico, limpieza de filtros, aspirado, balance de pH y agua cristalina garantizada.',
+    description: 'Mantenimiento químico, limpieza de filtros, aspirado y agua cristalina garantizada.',
     image: 'https://images.pexels.com/photos/8134746/pexels-photo-8134746.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
     color: 'from-sky-500 to-blue-600',
     bgLight: 'bg-sky-50',
@@ -24,29 +24,29 @@ const services = [
   {
     icon: TreePine,
     title: 'Poda de Árboles',
-    description: 'Poda profesional y segura de árboles de cualquier tamaño. Retiro de ramas y troncos incluido.',
+    description: 'Poda profesional y segura de árboles. Retiro de ramas y troncos incluido.',
     image: 'https://images.pexels.com/photos/7174105/pexels-photo-7174105.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
     color: 'from-teal-500 to-emerald-600',
     bgLight: 'bg-teal-50',
     textColor: 'text-teal-600',
   },
   {
+    icon: Trees,
+    title: 'Limpieza de Terrenos y Maleza',
+    description: 'Desmonte, poda de maleza y limpieza de terrenos rurales y quintas.',
+    image: 'https://images.pexels.com/photos/19084142/pexels-photo-19084142.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
+    color: 'from-lime-600 to-emerald-700',
+    bgLight: 'bg-lime-50',
+    textColor: 'text-lime-600',
+  },
+  {
     icon: Fence,
     title: 'Mantenimiento General',
-    description: 'Reparaciones menores, pintura, impermeabilización, cercas y mantenimiento preventivo de tu propiedad.',
+    description: 'Reparaciones menores, pintura, impermeabilización y mantenimiento preventivo de tu propiedad.',
     image: 'https://images.pexels.com/photos/8143683/pexels-photo-8143683.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
     color: 'from-amber-500 to-orange-600',
     bgLight: 'bg-amber-50',
     textColor: 'text-amber-600',
-  },
-  {
-    icon: Sun,
-    title: 'Preparación para Eventos',
-    description: 'Dejamos tu quinta lista para fiestas, reuniones o rentas. Limpieza express y montaje de áreas.',
-    image: 'https://images.pexels.com/photos/19084142/pexels-photo-19084142.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
-    color: 'from-rose-500 to-pink-600',
-    bgLight: 'bg-rose-50',
-    textColor: 'text-rose-600',
   },
 ];
 

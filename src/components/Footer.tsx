@@ -5,6 +5,7 @@ const footerLinks = {
     { label: 'Cuidado de Jardines', href: '#servicios' },
     { label: 'Limpieza de Alberca', href: '#servicios' },
     { label: 'Poda de Árboles', href: '#servicios' },
+    { label: 'Limpieza de Terrenos y Maleza', href: '#servicios' },
     { label: 'Mantenimiento General', href: '#servicios' },
   ],
   empresa: [

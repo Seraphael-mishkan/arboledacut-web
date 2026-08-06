@@ -59,6 +59,7 @@ export default function CTA() {
     'Cuidado de jardines',
     'Limpieza de alberca',
     'Poda de árboles',
+    'Limpieza de terrenos y maleza',
     'Mantenimiento general',
   ];
 
