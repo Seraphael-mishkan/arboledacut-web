@@ -4,15 +4,6 @@ import { Leaf, Droplets, SprayCan, TreePine, Fence, Sun } from 'lucide-react';
 
 const services = [
   {
-    icon: SprayCan,
-    title: 'Limpieza Integral',
-    description: 'Limpieza profunda de interiores y exteriores. Pisos, ventanas, baños, cocinas y áreas comunes impecables.',
-    image: 'https://images.pexels.com/photos/6195275/pexels-photo-6195275.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
-    color: 'from-violet-500 to-purple-600',
-    bgLight: 'bg-violet-50',
-    textColor: 'text-violet-600',
-  },
-  {
     icon: Leaf,
     title: 'Cuidado de Jardines',
     description: 'Poda, diseño paisajístico, sistema de riego, control de plagas y mantenimiento de áreas verdes.',

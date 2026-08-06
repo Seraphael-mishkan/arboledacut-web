@@ -6,7 +6,7 @@ import { Plus, Minus, HelpCircle } from 'lucide-react';
 const faqs = [
   {
     question: '¿Qué zonas cubren?',
-    answer: 'Cubrimos toda el área metropolitana de Monterrey y municipios cercanos como Santiago, Allende, Montemorelos, San Pedro, Santa Catarina y más. Si tu propiedad está fuera de estas zonas, contáctanos para verificar disponibilidad.',
+    answer: 'Cubrimos Yautepec Morelos Mexico y zonas cercanas. Si tu propiedad está fuera de estas zonas, contáctanos para verificar disponibilidad.',
   },
   {
     question: '¿Necesito estar presente durante el servicio?',

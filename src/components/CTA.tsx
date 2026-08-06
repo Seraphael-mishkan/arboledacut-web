@@ -30,7 +30,6 @@ export default function CTA() {
   };
 
   const serviceOptions = [
-    'Limpieza de interiores',
     'Cuidado de jardines',
     'Limpieza de alberca',
     'Poda de árboles',
@@ -69,9 +68,9 @@ export default function CTA() {
             {/* Contact info */}
             <div className="mt-10 space-y-5">
               {[
-                { icon: Phone, text: '+52 (81) 1234-5678', label: 'Llámanos' },
+                { icon: Phone, text: '7353346855', label: 'Llámanos' },
                 { icon: MessageCircle, text: 'WhatsApp disponible', label: 'Escríbenos' },
-                { icon: MapPin, text: 'Monterrey y área metropolitana', label: 'Cobertura' },
+                { icon: MapPin, text: 'Yautepec Morelos Mexico', label: 'Cobertura' },
                 { icon: Clock, text: 'Lun-Sáb 7:00am - 7:00pm', label: 'Horario' },
               ].map((item, i) => (
                 <motion.div
@@ -156,23 +155,11 @@ export default function CTA() {
                         value={formData.phone}
                         onChange={e => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-800 placeholder:text-slate-400 hover:border-emerald-300 focus:border-emerald-500 transition-colors"
-                        placeholder="(81) 1234-5678"
+                        placeholder="735 334 6855"
                       />
                     </div>
                   </div>
 
-                  <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1.5">
-                      Correo electrónico
-                    </label>
-                    <input
-                      type="email"
-                      value={formData.email}
-                      onChange={e => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-800 placeholder:text-slate-400 hover:border-emerald-300 focus:border-emerald-500 transition-colors"
-                      placeholder="tu@email.com"
-                    />
-                  </div>
 
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-1.5">

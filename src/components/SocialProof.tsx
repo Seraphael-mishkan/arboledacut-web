@@ -43,7 +43,7 @@ export default function SocialProof() {
             Confían en nosotros dueños de propiedades en
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-16 text-slate-300">
-            {['Monterrey', 'Saltillo', 'San Pedro', 'Santiago', 'Allende', 'Montemorelos'].map((city, i) => (
+            {['Yautepec', 'Morelos', 'México'].map((city, i) => (
               <motion.span
                 key={city}
                 initial={{ opacity: 0 }}

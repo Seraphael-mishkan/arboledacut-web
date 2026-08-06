@@ -1,24 +1,7 @@
 import { Leaf, Phone, Mail, MapPin } from 'lucide-react';
 
-function InstagramIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
-    </svg>
-  );
-}
-
-function FacebookIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-    </svg>
-  );
-}
-
 const footerLinks = {
   servicios: [
-    { label: 'Limpieza Integral', href: '#servicios' },
     { label: 'Cuidado de Jardines', href: '#servicios' },
     { label: 'Limpieza de Alberca', href: '#servicios' },
     { label: 'Poda de Árboles', href: '#servicios' },
@@ -60,22 +43,6 @@ export default function Footer() {
               Tu tranquilidad es nuestra misión.
             </p>
 
-            {/* Social */}
-            <div className="flex gap-3 mt-6">
-              {[
-                { icon: FacebookIcon, label: 'Facebook' },
-                { icon: InstagramIcon, label: 'Instagram' },
-              ].map((social, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  aria-label={social.label}
-                  className="w-10 h-10 rounded-xl bg-slate-800 hover:bg-emerald-600 flex items-center justify-center transition-all duration-300 hover:scale-110"
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Services */}
@@ -112,15 +79,11 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-emerald-400 mt-1 flex-shrink-0" />
-                <span className="text-slate-400 text-sm">+52 (81) 1234-5678</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-emerald-400 mt-1 flex-shrink-0" />
-                <span className="text-slate-400 text-sm">contacto@arboledacut.com</span>
+                <span className="text-slate-400 text-sm">7353346855</span>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-emerald-400 mt-1 flex-shrink-0" />
-                <span className="text-slate-400 text-sm">Monterrey y Área Metropolitana, N.L., México</span>
+                <span className="text-slate-400 text-sm">Yautepec Morelos Mexico</span>
               </li>
             </ul>
           </div>
