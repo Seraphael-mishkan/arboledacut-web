@@ -12,7 +12,7 @@ export default function SocialProof() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-16 bg-white relative overflow-hidden" ref={ref}>
+    <section className="py-20 bg-white relative overflow-hidden" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {stats.map((stat, index) => (
@@ -21,19 +21,22 @@ export default function SocialProof() {
               initial={{ opacity: 0, y: 30 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group text-center p-6 rounded-2xl hover:bg-emerald-50/50 transition-all duration-300 hover:scale-105 cursor-default flex flex-col items-center justify-center"
+              className="group text-center p-6 sm:p-8 rounded-3xl bg-slate-50/70 border border-slate-100 hover:bg-emerald-50/60 hover:border-emerald-200/80 hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 cursor-default flex flex-col items-center justify-center"
             >
-              <div className="w-14 h-14 sm:w-16 sm:h-16 mb-3 flex items-center justify-center p-2 rounded-2xl bg-emerald-50/80 group-hover:bg-emerald-100/90 group-hover:scale-110 transition-all duration-300 shadow-sm">
+              {/* Large prominent illustration icon */}
+              <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 mb-4 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <img
                   src={stat.icon}
                   alt={stat.label}
-                  className="w-full h-full object-contain filter drop-shadow-sm"
+                  className="w-full h-full object-contain filter drop-shadow-md"
                 />
               </div>
-              <div className="text-3xl lg:text-4xl font-bold text-slate-900 mb-1">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mb-1.5 tracking-tight group-hover:text-emerald-950 transition-colors">
                 {stat.value}
               </div>
-              <div className="text-sm text-slate-500 font-medium">{stat.label}</div>
+              <div className="text-sm sm:text-base text-slate-600 font-bold leading-snug">
+                {stat.label}
+              </div>
             </motion.div>
           ))}
         </div>
