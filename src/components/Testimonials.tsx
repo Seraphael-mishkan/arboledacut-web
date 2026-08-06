@@ -55,7 +55,7 @@ export default function Testimonials() {
             <span className="text-gradient">clientes</span>
           </h2>
           <p className="mt-6 text-lg text-slate-500 leading-relaxed">
-            Más de 200 propietarios confían en nosotros. Estas son sus experiencias.
+            Más de 50 propietarios confían en nosotros. Estas son sus experiencias.
           </p>
         </motion.div>
 

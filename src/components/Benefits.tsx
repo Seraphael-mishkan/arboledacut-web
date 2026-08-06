@@ -11,7 +11,7 @@ const benefits = [
   {
     icon: Shield,
     title: 'Tranquilidad Total',
-    description: 'Personal verificado, asegurado y capacitado. Tu propiedad está en las mejores manos posibles.',
+    description: 'Personal capacitado, tu propiedad está en las mejores manos posibles.',
   },
   {
     icon: Smile,
@@ -26,7 +26,7 @@ const benefits = [
   {
     icon: Repeat,
     title: 'Servicio Consistente',
-    description: 'El mismo equipo asignado a tu propiedad siempre. Conocen tu quinta como la palma de su mano.',
+    description: 'El mismo equipo asignado a tu propiedad siempre. Conocen tu propiedad como la palma de su mano.',
   },
   {
     icon: HeartHandshake,
@@ -60,7 +60,7 @@ export default function Benefits() {
             <span className="text-emerald-400">tranquilidad</span>
           </h2>
           <p className="mt-6 text-lg text-emerald-100/60 leading-relaxed">
-            Descubre por qué cientos de dueños de quintas confían en Arboledacut
+            Descubre por qué varios propietarios confían en Arboledacut
             para el cuidado de sus propiedades.
           </p>
         </motion.div>
