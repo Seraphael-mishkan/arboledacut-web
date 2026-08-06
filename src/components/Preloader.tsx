@@ -67,34 +67,60 @@ export default function Preloader({ onComplete }: PreloaderProps) {
               style={{ left: `${progress}%` }}
             >
               <div className="relative">
-                {/* Grass particles flying backwards from mower discharge */}
+                {/* Grass blades flying from mower discharge */}
                 {progress > 5 && progress < 98 && (
-                  <div className="absolute top-1/2 -left-4 w-12 h-12 pointer-events-none">
-                    {[...Array(6)].map((_, i) => (
-                      <motion.span
-                        key={`${i}-${Math.floor(progress / 5)}`}
-                        initial={{
-                          x: 0,
-                          y: 0,
-                          scale: Math.random() * 0.6 + 0.6,
-                          opacity: 1,
-                          rotate: 0,
-                        }}
-                        animate={{
-                          x: -Math.random() * 45 - 20,
-                          y: -Math.random() * 35 - 10,
-                          opacity: 0,
-                          rotate: Math.random() * 360,
-                        }}
-                        transition={{ duration: 0.45, ease: 'easeOut' }}
-                        className="absolute block rounded-sm bg-emerald-400 border border-emerald-300"
-                        style={{
-                          width: `${Math.random() * 6 + 4}px`,
-                          height: `${Math.random() * 10 + 6}px`,
-                          top: `${Math.random() * 20}px`,
-                        }}
-                      />
-                    ))}
+                  <div className="absolute -top-2 -left-6 w-20 h-24 pointer-events-none">
+                    {[...Array(10)].map((_, i) => {
+                      const grassColors = [
+                        '#34d399', '#6ee7b7', '#a7f3d0', '#10b981',
+                        '#059669', '#4ade80', '#86efac', '#22c55e',
+                        '#15803d', '#bbf7d0',
+                      ];
+                      const color = grassColors[i % grassColors.length];
+                      const bladeWidth = Math.random() * 2 + 1.5;
+                      const bladeHeight = Math.random() * 10 + 7;
+                      const spreadX = -(Math.random() * 55 + 15);
+                      const peakY = -(Math.random() * 40 + 15);
+                      const delay = i * 0.04;
+                      const duration = Math.random() * 0.4 + 0.5;
+                      const spin = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 540 + 180);
+
+                      return (
+                        <motion.span
+                          key={`grass-${i}-${Math.floor(progress / 3)}`}
+                          initial={{
+                            x: 0,
+                            y: 0,
+                            opacity: 0.95,
+                            rotate: Math.random() * 90 - 45,
+                            scale: 1,
+                          }}
+                          animate={{
+                            x: [0, spreadX * 0.5, spreadX],
+                            y: [0, peakY, peakY * 0.3],
+                            opacity: [0.95, 0.8, 0],
+                            rotate: spin,
+                            scale: [1, 0.8, 0.4],
+                          }}
+                          transition={{
+                            duration: duration,
+                            delay: delay,
+                            ease: 'easeOut',
+                            times: [0, 0.4, 1],
+                          }}
+                          className="absolute block"
+                          style={{
+                            width: `${bladeWidth}px`,
+                            height: `${bladeHeight}px`,
+                            backgroundColor: color,
+                            borderRadius: `${bladeWidth}px`,
+                            top: `${Math.random() * 16 + 4}px`,
+                            left: `${Math.random() * 8}px`,
+                            boxShadow: `0 0 3px ${color}80`,
+                          }}
+                        />
+                      );
+                    })}
                   </div>
                 )}
 
