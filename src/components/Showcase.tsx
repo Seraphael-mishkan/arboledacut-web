@@ -90,8 +90,8 @@ export default function Showcase() {
               <span className="text-gradient">nota</span>
             </h2>
             <p className="mt-6 text-lg text-slate-500 leading-relaxed">
-              No somos jardineros improvisados. Somos un equipo con procesos
-              establecidos y un compromiso real con tu propiedad.
+              Nos tomamos en serio el cuidado de tu propiedad. Procesos claros,
+              resultados visibles y un trato cercano que nos distingue.
             </p>
 
             <div className="mt-8 space-y-4">
