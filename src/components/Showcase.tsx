@@ -3,7 +3,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 
 const features = [
-  'Equipo profesional capacitado y uniformado',
+  'Equipo capacitado',
   'Reportes fotográficos después de cada visita',
   'Horarios flexibles adaptados a ti',
   'Atención personalizada garantizada',
