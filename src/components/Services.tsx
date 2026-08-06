@@ -46,13 +46,11 @@ const services = [
     title: 'Poda de',
     titleHighlight: 'Árboles',
     description:
-      'Servicio profesional y seguro para el cuidado de tus árboles. Trabajamos con equipo especializado.',
+      'Servicio profesional y seguro para el cuidado de tus árboles.',
     features: [
       'Poda de formación y saneamiento',
-      'Derribo controlado',
       'Retiro de ramas y troncos',
       'Limpieza del área de trabajo',
-      'Personal capacitado y asegurado',
     ],
     image:
       'https://images.pexels.com/photos/7174105/pexels-photo-7174105.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=800',
