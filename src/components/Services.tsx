@@ -72,12 +72,13 @@ export default function Services() {
             Nuestros Servicios
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mt-4 leading-tight">
-            Todo lo que tu quinta{' '}
+            Todo lo que tu propiedad{' '}
             <span className="text-gradient">necesita</span>
           </h2>
           <p className="mt-6 text-lg text-slate-500 leading-relaxed">
-            Ofrecemos un servicio integral para que tu propiedad luzca perfecta en todo momento,
-            sin que tengas que preocuparte por nada.
+            Quintas, residencias, casas condominales, ranchos y fraccionamientos completos.
+            <br className="hidden sm:block" />
+            Ofrecemos un servicio integral para que tu propiedad luzca perfecta en todo momento.
           </p>
         </motion.div>
 
