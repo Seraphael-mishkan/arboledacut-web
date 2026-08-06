@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const stats = [
-  { value: '50+', label: 'Quintas Atendidas', icon: '🏡' },
+  { value: '50+', label: 'Propiedades Atendidas', icon: '🏡' },
   { value: '98%', label: 'Clientes Satisfechos', icon: '⭐' },
   { value: '5+', label: 'Años de Experiencia', icon: '🏆' },
   { value: '24/7', label: 'Soporte Disponible', icon: '📞' },

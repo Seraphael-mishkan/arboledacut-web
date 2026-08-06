@@ -83,7 +83,7 @@ export default function CTA() {
               Cotización Gratuita
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-              Transforma tu quinta{' '}
+              Transforma tu propiedad{' '}
               <span className="text-emerald-300">hoy mismo</span>
             </h2>
             <p className="mt-6 text-lg text-emerald-100/70 leading-relaxed">

@@ -55,7 +55,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
               Arboleda<span className="text-emerald-400">cut</span>
             </h2>
             <p className="text-emerald-200/80 text-xs sm:text-sm font-medium mt-1">
-              Preparando el mejor cuidado para tu quinta...
+              Preparando el mejor cuidado para tu propiedad...
             </p>
           </motion.div>
 

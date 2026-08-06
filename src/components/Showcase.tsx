@@ -69,7 +69,7 @@ export default function Showcase() {
                   ✨
                 </div>
                 <div>
-                  <p className="text-lg font-bold text-slate-800">+50 Quintas</p>
+                  <p className="text-lg font-bold text-slate-800">+50 Propiedades</p>
                   <p className="text-sm text-slate-500">confían en nosotros</p>
                 </div>
               </div>

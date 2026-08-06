@@ -41,7 +41,7 @@ export default function Hero() {
             className="w-[78vw] max-w-[320px] aspect-square object-contain drop-shadow-2xl mb-3 filter brightness-105"
           />
           <span className="text-emerald-950 font-extrabold text-2xl tracking-tight">Arboleda<span className="text-emerald-600">cut</span></span>
-          <p className="text-slate-600 text-xs sm:text-sm mt-1 font-medium">Servicios Profesionales para Quintas</p>
+          <p className="text-slate-600 text-xs sm:text-sm mt-1 font-medium">Servicios Profesionales para tu Propiedad</p>
         </motion.div>
       </div>
 
@@ -58,12 +58,12 @@ export default function Hero() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-950/80 backdrop-blur-md border border-emerald-500/30 mb-6 shadow-xl">
             <Sparkles className="w-4 h-4 text-emerald-400" />
-            <span className="text-emerald-300 text-sm font-medium">Servicio Premium para Quintas</span>
+            <span className="text-emerald-300 text-sm font-medium">Servicio Premium para tu Propiedad</span>
           </div>
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight max-w-4xl drop-shadow-2xl">
-            Tu quinta,{' '}
+            Tu propiedad,{' '}
             <span className="relative inline-block">
               <span className="text-gradient">siempre</span>
             </span>{' '}
@@ -117,7 +117,7 @@ export default function Hero() {
             >
               {[
                 { icon: Shield, text: 'Garantía de Satisfacción' },
-                { icon: Star, text: '+200 Quintas Atendidas' },
+                { icon: Star, text: '+50 Propiedades Atendidas' },
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2 bg-emerald-950/70 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-emerald-500/30 shadow-lg">
                   <item.icon className="w-4 h-4 text-emerald-400" />
