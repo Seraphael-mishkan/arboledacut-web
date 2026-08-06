@@ -26,6 +26,32 @@ export default function CTA() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const propertyLabels: Record<string, string> = {
+      'quinta': 'Quinta / Rancho',
+      'casa-descanso': 'Casa de Descanso',
+      'residencia': 'Residencia',
+      'evento': 'Quinta para Eventos',
+      'otro': 'Otro',
+    };
+
+    const propertyText = propertyLabels[formData.property] || formData.property || 'No especificada';
+    const servicesText = formData.services.length > 0 ? formData.services.join(', ') : 'Ninguno seleccionado';
+
+    let messageText = `🌿 *NUEVA SOLICITUD DE COTIZACIÓN* 🌿\n\n`;
+    messageText += `👤 *Nombre:* ${formData.name}\n`;
+    messageText += `📱 *Teléfono:* ${formData.phone}\n`;
+    messageText += `🏡 *Tipo de propiedad:* ${propertyText}\n`;
+    messageText += `🛠️ *Servicios de interés:* ${servicesText}\n`;
+    if (formData.message.trim()) {
+      messageText += `💬 *Mensaje adicional:* ${formData.message.trim()}\n`;
+    }
+    messageText += `\n✨ *Enviado desde Arboledacut Web*`;
+
+    const encodedText = encodeURIComponent(messageText);
+    const whatsappUrl = `https://wa.me/527353346855?text=${encodedText}`;
+
+    window.open(whatsappUrl, '_blank');
     setSubmitted(true);
   };
 
@@ -34,7 +60,6 @@ export default function CTA() {
     'Limpieza de alberca',
     'Poda de árboles',
     'Mantenimiento general',
-    'Preparación para eventos',
   ];
 
   return (
@@ -108,17 +133,16 @@ export default function CTA() {
                   <CheckCircle className="w-10 h-10 text-emerald-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                  ¡Mensaje Enviado!
+                  ¡Abriendo WhatsApp!
                 </h3>
                 <p className="text-slate-500 leading-relaxed">
-                  Gracias por tu interés. Nuestro equipo se pondrá en contacto contigo
-                  en las próximas 2 horas para agendar tu visita gratuita.
+                  Se ha generado tu cotización estructurada. Si no se abrió WhatsApp automáticamente, haz clic en el botón de abajo para enviar tu mensaje.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="mt-6 text-emerald-600 font-medium hover:underline"
+                  className="mt-6 text-emerald-600 font-medium hover:underline block mx-auto"
                 >
-                  Enviar otra solicitud
+                  Volver al formulario
                 </button>
               </motion.div>
             ) : (
