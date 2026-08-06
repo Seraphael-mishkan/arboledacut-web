@@ -22,43 +22,40 @@ export default function Hero() {
           onEnded={() => setVideoEnded(true)}
           className="w-full h-full object-cover"
         />
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      {/* Mobile-Only White End Screen with Centered Round Logo */}
+      {/* Mobile-Only End Screen: full-screen image covering Hero when video ends */}
       <div
-        className={`absolute inset-0 z-0 sm:hidden transition-opacity duration-700 bg-white flex flex-col items-center justify-center p-6 ${
-          videoEnded ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        className={`absolute inset-0 z-0 sm:hidden transition-opacity duration-700 overflow-hidden pointer-events-none ${
+          videoEnded ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <motion.div
-          animate={{ scale: videoEnded ? 1 : 0.9, opacity: videoEnded ? 1 : 0 }}
-          transition={{ duration: 0.8 }}
-          className="flex flex-col items-center text-center -mt-16 w-full max-w-sm px-2"
-        >
-          <img
-            src="/logo.png"
-            alt="Arboledacut Emblem"
-            className="w-[78vw] max-w-[320px] aspect-square object-contain drop-shadow-2xl mb-3 filter brightness-105"
-          />
-          <span className="text-emerald-950 font-extrabold text-2xl tracking-tight">Arboleda<span className="text-emerald-600">cut</span></span>
-          <p className="text-slate-600 text-xs sm:text-sm mt-1 font-medium">Servicios Profesionales para tu Propiedad</p>
-        </motion.div>
+        <img
+          src="/imagen-celulares.jpg"
+          alt="Arboledacut Mobile Background"
+          className="w-full h-full object-cover filter brightness-95"
+        />
+        {/* Dark overlay for readability of hero elements */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-emerald-950/50 to-black/80" />
       </div>
 
-      {/* Top Header Text Section — Smoothly fades out without DOM collapse or scale shift */}
+      {/* Top Header Text Section */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 lg:pt-36 text-center flex flex-col items-center">
         <motion.div
           animate={{
-            opacity: videoEnded ? 0 : 1,
-            y: videoEnded ? -20 : 0,
+            opacity: 1,
+            y: 0,
           }}
           transition={{ duration: 0.8, ease: 'easeInOut' }}
-          className={`flex flex-col items-center ${videoEnded ? 'pointer-events-none' : 'pointer-events-auto'}`}
+          className="flex flex-col items-center pointer-events-auto"
         >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-950/80 backdrop-blur-md border border-emerald-500/30 mb-6 shadow-xl">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-950/85 backdrop-blur-md border border-emerald-500/30 mb-6 shadow-xl">
             <Sparkles className="w-4 h-4 text-emerald-400" />
-            <span className="text-emerald-300 text-sm font-medium">Servicio Premium para tu Propiedad</span>
+            <span className="text-emerald-300 text-sm font-medium">
+              Servicio Premium para tu Propiedad
+            </span>
           </div>
 
           {/* Headline */}
@@ -78,11 +75,11 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Bottom CTA Buttons Section — Positioned low down, near bottom wave */}
+      {/* Bottom CTA Buttons Section */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 sm:pb-24 lg:pb-28 text-center flex flex-col items-center w-full mt-auto">
         <motion.div
           animate={{
-            y: videoEnded ? 10 : 0,
+            y: 0,
           }}
           transition={{ duration: 0.8, ease: 'easeInOut' }}
           className="flex flex-col sm:flex-row gap-3.5 sm:gap-4 justify-center w-full sm:w-auto"
@@ -96,17 +93,13 @@ export default function Hero() {
           </a>
           <a
             href="#servicios"
-            className={`inline-flex items-center justify-center gap-2 px-8 py-3.5 sm:py-4 transition-all duration-300 hover:scale-105 text-base sm:text-lg shadow-xl font-semibold rounded-2xl ${
-              videoEnded
-                ? 'bg-emerald-950/90 text-white border border-emerald-500/40 sm:bg-emerald-950/85'
-                : 'bg-emerald-950/85 hover:bg-emerald-900/95 backdrop-blur-md border border-emerald-500/40 text-white'
-            }`}
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 sm:py-4 bg-emerald-950/85 hover:bg-emerald-900/95 backdrop-blur-md border border-emerald-500/40 text-white transition-all duration-300 hover:scale-105 text-base sm:text-lg shadow-xl font-semibold rounded-2xl"
           >
             Ver Servicios
           </a>
         </motion.div>
 
-        {/* Sub-elements: Trust badges or subtle replay link */}
+        {/* Sub-elements: Trust badges or replay button */}
         <div className="mt-4 sm:mt-6 h-8 flex items-center justify-center">
           {!videoEnded ? (
             <motion.div
@@ -119,9 +112,14 @@ export default function Hero() {
                 { icon: Shield, text: 'Garantía de Satisfacción' },
                 { icon: Star, text: '+50 Propiedades Atendidas' },
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2 bg-emerald-950/70 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-emerald-500/30 shadow-lg">
+                <div
+                  key={i}
+                  className="flex items-center gap-2 bg-emerald-950/70 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-emerald-500/30 shadow-lg"
+                >
                   <item.icon className="w-4 h-4 text-emerald-400" />
-                  <span className="text-xs sm:text-sm font-semibold text-white">{item.text}</span>
+                  <span className="text-xs sm:text-sm font-semibold text-white">
+                    {item.text}
+                  </span>
                 </div>
               ))}
             </motion.div>
@@ -130,10 +128,10 @@ export default function Hero() {
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               onClick={() => setVideoEnded(false)}
-              className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-900 sm:text-emerald-200/90 hover:text-emerald-700 sm:hover:text-white bg-emerald-100 sm:bg-emerald-950/70 backdrop-blur-md px-3.5 py-1 rounded-full border border-emerald-300 sm:border-emerald-500/30 transition-all hover:bg-emerald-200 sm:hover:bg-emerald-900/90 shadow-md"
+              className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-200 hover:text-white bg-emerald-950/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-emerald-500/40 transition-all hover:bg-emerald-900 shadow-md"
             >
-              <RefreshCw className="w-3 h-3 text-emerald-600 sm:text-emerald-400" />
-              Mostrar Título
+              <RefreshCw className="w-3 h-3 text-emerald-400" />
+              Repetir Video
             </motion.button>
           )}
         </div>
@@ -141,13 +139,18 @@ export default function Hero() {
 
       {/* Bottom wave */}
       <div className="absolute bottom-0 left-0 right-0 z-10 pointer-events-none">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-          <path d="M0 120L60 110C120 100 240 80 360 73.3C480 67 600 73 720 80C840 87 960 93 1080 90C1200 87 1320 73 1380 66.7L1440 60V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+        <svg
+          viewBox="0 0 1440 120"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full"
+        >
+          <path
+            d="M0 120L60 110C120 100 240 80 360 73.3C480 67 600 73 720 80C840 87 960 93 1080 90C1200 87 1320 73 1380 66.7L1440 60V120H1380C1320 120 1200 120 1080 120C960 120 480 120 360 120C240 120 120 120 60 120H0Z"
+            fill="white"
+          />
         </svg>
       </div>
     </section>
   );
 }
-
-
-
