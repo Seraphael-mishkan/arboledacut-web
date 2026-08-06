@@ -200,16 +200,35 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* Bottom note */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={isVisible ? { opacity: 1 } : {}}
-          transition={{ delay: 0.8 }}
-          className="text-center mt-12 text-slate-400 text-sm"
+        {/* Custom Plan Prominent Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="mt-14 sm:mt-16 max-w-4xl mx-auto rounded-3xl bg-gradient-to-r from-emerald-950 via-emerald-900 to-emerald-950 p-8 sm:p-10 border border-emerald-500/40 shadow-2xl shadow-emerald-950/20 relative overflow-hidden group text-center sm:text-left"
         >
-          ¿Necesitas algo diferente? Armamos un plan 100% personalizado para ti.{' '}
-          <a href="#contacto" className="text-emerald-600 font-medium hover:underline">Contáctanos</a>
-        </motion.p>
+          <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+          <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8">
+            <div className="flex-1">
+              <h3
+                className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2 tracking-tight"
+                style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+              >
+                ¿Necesitas algo <span className="text-emerald-400">diferente</span>?
+              </h3>
+              <p className="text-emerald-100/90 text-base sm:text-lg font-medium leading-relaxed">
+                Armamos un plan 100% personalizado adaptado a las necesidades exactas de tu propiedad.
+              </p>
+            </div>
+            <a
+              href="#contacto"
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-white font-bold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-emerald-500/30 whitespace-nowrap text-base sm:text-lg shadow-lg flex-shrink-0"
+            >
+              Contáctanos
+              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
