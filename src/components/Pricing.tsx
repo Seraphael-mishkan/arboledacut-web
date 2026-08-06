@@ -26,13 +26,14 @@ const plans = [
     frequency: '/mes',
     popular: true,
     features: [
-      'Mantenimiento completo semanal',
-      'Cuidado integral de jardines',
+      { text: 'Mantenimiento completo semanal', isTitle: true },
+      {
+        text: 'Cuidado integral de jardines:',
+        subItems: ['Poda de pasto', 'Poda de arbustos', 'Cajetes a jardineras', '2 riegos semanales'],
+      },
       'Mantenimiento semanal de alberca',
       'Reportes con fotos antes/después',
       'Equipo asignado exclusivo',
-      'Reparaciones menores incluidas',
-      'Soporte prioritario 24/7',
     ],
     cta: 'Elegir Premium',
   },
@@ -142,16 +143,45 @@ export default function Pricing() {
                 </div>
 
                 <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${
-                        plan.popular ? 'text-emerald-400' : 'text-emerald-500'
-                      }`} />
-                      <span className={`text-sm ${plan.popular ? 'text-emerald-100/80' : 'text-slate-600'}`}>
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
+                  {plan.features.map((featureItem, i) => {
+                    const isObj = typeof featureItem === 'object';
+                    const text = isObj ? featureItem.text : featureItem;
+                    const isTitle = isObj && featureItem.isTitle;
+                    const subItems = isObj ? featureItem.subItems : undefined;
+
+                    if (isTitle) {
+                      return (
+                        <li key={i} className="pt-1 pb-2 mb-3 border-b border-emerald-800/60">
+                          <h4 className="text-base font-bold text-emerald-300 tracking-wide">
+                            {text}
+                          </h4>
+                        </li>
+                      );
+                    }
+
+                    return (
+                      <li key={i} className="space-y-1.5">
+                        <div className="flex items-start gap-3">
+                          <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${
+                            plan.popular ? 'text-emerald-400' : 'text-emerald-500'
+                          }`} />
+                          <span className={`text-sm ${plan.popular ? 'text-emerald-100/90' : 'text-slate-600'}`}>
+                            {text}
+                          </span>
+                        </div>
+                        {subItems && (
+                          <ul className="pl-8 space-y-1 text-xs text-emerald-200/80">
+                            {subItems.map((sub, j) => (
+                              <li key={j} className="flex items-center gap-2">
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/80 flex-shrink-0" />
+                                <span>{sub}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
 
