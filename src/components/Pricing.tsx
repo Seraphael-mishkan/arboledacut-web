@@ -6,12 +6,13 @@ const plans = [
   {
     name: 'Esencial',
     description: 'Ideal para quintas pequeñas con mantenimiento básico.',
-    price: '2,499',
-    frequency: '/mes',
+    price: '1,600',
+    frequency: '/quincena',
     popular: false,
+    note: '*Precio válido para zona Yautepec, en otras zonas el precio se ajusta.',
     features: [
-      'Limpieza de interiores quincenal',
-      'Poda de jardín quincenal',
+      'Poda de jardín semanal',
+      'Riego de pasto 2 veces por semana',
       'Mantenimiento básico de alberca',
       'Reporte fotográfico por visita',
       'Soporte por WhatsApp',
@@ -25,12 +26,11 @@ const plans = [
     frequency: '/mes',
     popular: true,
     features: [
-      'Limpieza completa semanal',
+      'Mantenimiento completo semanal',
       'Cuidado integral de jardines',
       'Mantenimiento semanal de alberca',
       'Reportes con fotos antes/después',
       'Equipo asignado exclusivo',
-      'Control de plagas mensual',
       'Reparaciones menores incluidas',
       'Soporte prioritario 24/7',
     ],
@@ -130,8 +130,13 @@ export default function Pricing() {
                     )}
                   </div>
                   {plan.price !== 'Personalizado' && (
-                    <p className={`mt-1 text-xs ${plan.popular ? 'text-emerald-300/50' : 'text-slate-400'}`}>
-                      MXN + IVA
+                    <p className={`mt-1 text-xs font-medium ${plan.popular ? 'text-emerald-300/50' : 'text-slate-400'}`}>
+                      MXN
+                    </p>
+                  )}
+                  {plan.note && (
+                    <p className={`mt-2 text-[11px] leading-snug font-normal ${plan.popular ? 'text-emerald-200/60' : 'text-slate-400'}`}>
+                      {plan.note}
                     </p>
                   )}
                 </div>
