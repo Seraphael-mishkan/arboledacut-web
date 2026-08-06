@@ -5,7 +5,7 @@ import { Check, Star, ArrowRight, Sparkles } from 'lucide-react';
 const plans = [
   {
     name: 'Esencial',
-    description: 'Ideal para quintas pequeñas con mantenimiento básico.',
+    description: 'Ideal para casas residenciales pequeñas con mantenimiento básico.',
     price: '1,600',
     frequency: '/quincena',
     popular: false,
