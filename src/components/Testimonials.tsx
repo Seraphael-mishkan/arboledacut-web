@@ -5,28 +5,28 @@ import { Star, Quote } from 'lucide-react';
 const testimonials = [
   {
     name: 'María Elena García',
-    role: 'Dueña de Quinta en Santiago',
+    role: 'Dueña de Quinta en Yautepec Morelos',
     image: 'https://images.pexels.com/photos/28589009/pexels-photo-28589009.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=100&w=100',
-    text: 'Desde que contraté a Arboledacut, mi quinta siempre está impecable. Llego los fines de semana y todo está perfecto: el jardín podado, la alberca cristalina y la casa reluciente. ¡Son increíbles!',
+    text: 'Desde que contraté a Arboledacut, mi quinta siempre está impecable. Llego los fines de semana y todo está perfecto: el jardín podado y la alberca cristalina. ¡Son increíbles!',
     rating: 5,
   },
   {
     name: 'Roberto Martínez',
-    role: 'Casa de Descanso en Allende',
+    role: 'Casa de Descanso en Cuautla Morelos',
     image: 'https://images.pexels.com/photos/590472/pexels-photo-590472.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=100&w=100',
     text: 'Antes tenía que ir cada semana a supervisar a los jardineros. Con Arboledacut, me mandan reportes con fotos y todo queda perfecto. Me ahorro tiempo y estrés. Totalmente recomendados.',
     rating: 5,
   },
   {
     name: 'Ana Sofía López',
-    role: 'Propiedad en Montemorelos',
+    role: 'Propiedad en Tepoztlán Morelos',
     image: 'https://images.pexels.com/photos/16933979/pexels-photo-16933979.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=100&w=100',
     text: 'Contraté el plan premium y vale cada peso. Mi propiedad se ve mejor que cuando la compré. El equipo es muy profesional, puntual y respetuoso. Los mejores del mercado sin duda.',
     rating: 5,
   },
   {
     name: 'Carlos Villarreal',
-    role: 'Quinta para Eventos en Santiago',
+    role: 'Quinta para Eventos en Yautepec Morelos',
     image: 'https://images.pexels.com/photos/18689091/pexels-photo-18689091.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=100&w=100',
     text: 'Rento mi quinta para eventos y Arboledacut la deja impecable antes y después de cada evento. Mis clientes siempre quedan encantados. Son el complemento perfecto para mi negocio.',
     rating: 5,
