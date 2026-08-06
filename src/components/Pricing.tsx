@@ -25,6 +25,7 @@ const plans = [
     price: '4,999',
     frequency: '/mes',
     popular: true,
+    note: '*Precio válido para zona Yautepec, en otras zonas el precio se ajusta.',
     features: [
       { text: 'Mantenimiento completo semanal', isTitle: true },
       {
