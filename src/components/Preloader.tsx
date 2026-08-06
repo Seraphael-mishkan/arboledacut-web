@@ -147,12 +147,15 @@ export default function Preloader({ onComplete }: PreloaderProps) {
               </div>
             </div>
 
-            {/* Percentage text */}
-            <div className="flex justify-between items-center mt-4 px-2">
-              <span className="text-xs font-semibold text-emerald-300 uppercase tracking-wider">
-                Podando terreno...
-              </span>
-              <span className="text-xl sm:text-2xl font-black text-emerald-400 font-mono">
+            {/* Status & Percentage text */}
+            <div className="flex justify-between items-center mt-5 px-1">
+              <div className="flex items-center gap-2.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-sm shadow-emerald-400/80 flex-shrink-0" />
+                <span className="text-sm sm:text-base font-extrabold text-emerald-200 tracking-wider uppercase drop-shadow">
+                  Podando terreno...
+                </span>
+              </div>
+              <span className="text-2xl sm:text-3xl font-black text-emerald-400 font-mono drop-shadow-md">
                 {Math.round(progress)}%
               </span>
             </div>
