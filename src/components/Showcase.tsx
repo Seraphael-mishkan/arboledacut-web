@@ -4,8 +4,6 @@ import { CheckCircle, ArrowRight } from 'lucide-react';
 
 const features = [
   'Equipo profesional capacitado y uniformado',
-  'Productos de limpieza ecológicos y premium',
-  'Seguro de responsabilidad civil incluido',
   'Reportes fotográficos después de cada visita',
   'Horarios flexibles adaptados a ti',
   'Atención personalizada garantizada',
@@ -71,7 +69,7 @@ export default function Showcase() {
                   ✨
                 </div>
                 <div>
-                  <p className="text-lg font-bold text-slate-800">+200 Quintas</p>
+                  <p className="text-lg font-bold text-slate-800">+50 Quintas</p>
                   <p className="text-sm text-slate-500">confían en nosotros</p>
                 </div>
               </div>
@@ -92,8 +90,8 @@ export default function Showcase() {
               <span className="text-gradient">nota</span>
             </h2>
             <p className="mt-6 text-lg text-slate-500 leading-relaxed">
-              No somos jardineros improvisados. Somos un equipo profesional con procesos
-              establecidos, herramientas de primera y un compromiso real con la calidad.
+              No somos jardineros improvisados. Somos un equipo con procesos
+              establecidos y un compromiso real con tu propiedad.
             </p>
 
             <div className="mt-8 space-y-4">
