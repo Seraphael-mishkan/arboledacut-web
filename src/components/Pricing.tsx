@@ -6,7 +6,7 @@ const plans = [
   {
     name: 'Esencial',
     description: 'Ideal para casas residenciales pequeñas con mantenimiento básico.',
-    price: '1,600',
+    price: '1,700',
     frequency: '/quincena',
     popular: false,
     note: '*Precio válido para zona Yautepec, en otras zonas el precio se ajusta.',
