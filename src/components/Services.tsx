@@ -16,8 +16,7 @@ const services = [
       'Riego programado',
       'Fertilización y abonado',
     ],
-    image:
-      'https://images.pexels.com/photos/28180214/pexels-photo-28180214.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=800',
+    image: '/casas/casa1.jpg',
     gradient: 'from-emerald-600 to-green-700',
     accentColor: '#10b981',
     iconBg: 'bg-emerald-500',
@@ -35,8 +34,7 @@ const services = [
       'Revisión semanal de equipos',
       'Reporte de estado por visita',
     ],
-    image:
-      'https://images.pexels.com/photos/8134746/pexels-photo-8134746.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=800',
+    image: '/casas/casa2.jpg',
     gradient: 'from-sky-600 to-blue-700',
     accentColor: '#0ea5e9',
     iconBg: 'bg-sky-500',
@@ -52,8 +50,7 @@ const services = [
       'Retiro de ramas y troncos',
       'Limpieza del área de trabajo',
     ],
-    image:
-      'https://images.pexels.com/photos/7174105/pexels-photo-7174105.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=800',
+    image: '/casas/casa3.jpg',
     gradient: 'from-teal-600 to-emerald-700',
     accentColor: '#14b8a6',
     iconBg: 'bg-teal-500',
@@ -71,8 +68,7 @@ const services = [
       'Preparación de terrenos',
       'Retiro de escombro vegetal',
     ],
-    image:
-      'https://images.pexels.com/photos/19084142/pexels-photo-19084142.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=800',
+    image: '/casas/casa4.jpg',
     gradient: 'from-lime-600 to-green-700',
     accentColor: '#84cc16',
     iconBg: 'bg-lime-600',
@@ -90,8 +86,7 @@ const services = [
       'Mantenimiento preventivo',
       'Inspección general de propiedad',
     ],
-    image:
-      'https://images.pexels.com/photos/8143683/pexels-photo-8143683.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=500&w=800',
+    image: '/casas/casa5.jpg',
     gradient: 'from-amber-500 to-orange-600',
     accentColor: '#f59e0b',
     iconBg: 'bg-amber-500',
@@ -146,18 +141,16 @@ export default function Services() {
               transition={{ duration: 0.6, delay: index * 0.12 }}
               className="group relative bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:shadow-emerald-600/15 transition-all duration-500 hover:-translate-y-3 border border-slate-100/80"
             >
-              {/* Image with overlay */}
-              <div className="relative h-52 sm:h-56 overflow-hidden">
+              {/* Natural Image with subtle bottom text shadow (no color overlay tint) */}
+              <div className="relative h-56 sm:h-60 overflow-hidden">
                 <img
                   src={service.image}
                   alt={service.title + ' ' + service.titleHighlight}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
                 />
-                <div
-                  className={`absolute inset-0 bg-gradient-to-t ${service.gradient} opacity-70 mix-blend-multiply`}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+                {/* Subtle dark bottom gradient to make white title text readable */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
                 {/* Icon badge */}
                 <div
@@ -173,7 +166,7 @@ export default function Services() {
                     <span
                       style={{
                         color: service.accentColor,
-                        textShadow: `0 0 20px ${service.accentColor}60`,
+                        textShadow: `0 0 20px ${service.accentColor}80`,
                       }}
                     >
                       {service.titleHighlight}
