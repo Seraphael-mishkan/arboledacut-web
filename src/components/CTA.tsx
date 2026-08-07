@@ -94,8 +94,8 @@ export default function CTA() {
             {/* Contact info */}
             <div className="mt-10 space-y-5">
               {[
-                { icon: Phone, text: '7353346855', label: 'Llámanos' },
-                { icon: MessageCircle, text: 'WhatsApp disponible', label: 'Escríbenos' },
+                { icon: Phone, text: '+52 735 334 6855', label: 'Llámanos', href: 'tel:+527353346855' },
+                { icon: MessageCircle, text: 'WhatsApp disponible', label: 'Escríbenos', href: 'https://wa.me/527353346855' },
                 { icon: MapPin, text: 'Yautepec Morelos Mexico', label: 'Cobertura' },
                 { icon: Clock, text: 'Lun-Sáb 8:00am - 5:00pm', label: 'Horario' },
               ].map((item, i) => (
@@ -111,7 +111,13 @@ export default function CTA() {
                   </div>
                   <div>
                     <p className="text-xs text-emerald-300/60 font-medium uppercase tracking-wider">{item.label}</p>
-                    <p className="text-white font-medium">{item.text}</p>
+                    {item.href ? (
+                      <a href={item.href} target={item.href.startsWith('http') ? '_blank' : '_self'} rel="noopener noreferrer" className="text-white font-medium hover:text-emerald-300 transition-colors">
+                        {item.text}
+                      </a>
+                    ) : (
+                      <p className="text-white font-medium">{item.text}</p>
+                    )}
                   </div>
                 </motion.div>
               ))}
