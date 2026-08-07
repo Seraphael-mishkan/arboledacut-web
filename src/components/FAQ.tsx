@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     question: '¿Necesito estar presente durante el servicio?',
-    answer: 'No es necesario. La mayoría de nuestros clientes nos proporcionan acceso a su propiedad y reciben reportes fotográficos después de cada visita. Nuestro personal está verificado y asegurado para tu tranquilidad.',
+    answer: 'No es necesario. La mayoría de nuestros clientes nos proporcionan acceso a su propiedad y reciben reportes fotográficos después de cada visita.',
   },
   {
     question: '¿Qué pasa si no estoy satisfecho con el servicio?',
@@ -23,10 +23,6 @@ const faqs = [
   {
     question: '¿Qué incluye el reporte fotográfico?',
     answer: 'Después de cada visita, recibirás por WhatsApp un reporte con fotos del antes y después de cada área atendida: jardines, alberca, interiores y exteriores. Así puedes verificar el trabajo desde cualquier lugar.',
-  },
-  {
-    question: '¿Proporcionan los materiales y productos de limpieza?',
-    answer: 'Sí, nosotros llevamos todo el equipo, herramientas y productos necesarios. Usamos productos ecológicos y de alta calidad. Los químicos para la alberca también están incluidos en nuestros planes.',
   },
   {
     question: '¿Cuánto tiempo tarda el servicio?',
