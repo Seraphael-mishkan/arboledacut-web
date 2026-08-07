@@ -1,6 +1,7 @@
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { CheckCircle, ArrowRight } from 'lucide-react';
+import { CheckCircle, ArrowRight, MoveHorizontal, Sparkles } from 'lucide-react';
 
 const features = [
   'Equipo capacitado',
@@ -9,6 +10,123 @@ const features = [
   'Atención personalizada garantizada',
 ];
 
+function BeforeAfterSlider() {
+  const [sliderPos, setSliderPos] = useState(50);
+  const [isDragging, setIsDragging] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleMove = useCallback((clientX: number) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = clientX - rect.left;
+    let percentage = (x / rect.width) * 100;
+    if (percentage < 0) percentage = 0;
+    if (percentage > 100) percentage = 100;
+    setSliderPos(percentage);
+  }, []);
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    handleMove(e.touches[0].clientX);
+  };
+
+  useEffect(() => {
+    const handleGlobalMouseUp = () => setIsDragging(false);
+    const handleGlobalMouseMove = (e: MouseEvent) => {
+      if (isDragging) {
+        handleMove(e.clientX);
+      }
+    };
+
+    if (isDragging) {
+      window.addEventListener('mouseup', handleGlobalMouseUp);
+      window.addEventListener('mousemove', handleGlobalMouseMove);
+    }
+    return () => {
+      window.removeEventListener('mouseup', handleGlobalMouseUp);
+      window.removeEventListener('mousemove', handleGlobalMouseMove);
+    };
+  }, [isDragging, handleMove]);
+
+  return (
+    <div className="relative w-full max-w-lg mx-auto">
+      {/* Slider Box */}
+      <div
+        ref={containerRef}
+        onMouseDown={(e) => {
+          setIsDragging(true);
+          handleMove(e.clientX);
+        }}
+        onTouchStart={(e) => {
+          setIsDragging(true);
+          handleMove(e.touches[0].clientX);
+        }}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={() => setIsDragging(false)}
+        className="relative w-full h-[380px] sm:h-[450px] rounded-3xl overflow-hidden shadow-2xl border-2 border-emerald-500/20 cursor-ew-resize select-none group bg-slate-900"
+      >
+        {/* AFTER Image (Background) */}
+        <img
+          src="/antes-despues/despues.jpg"
+          alt="Resultado Después - Arboledacut"
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        />
+
+        {/* BEFORE Image (Overlay Clipped with polygon) */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ clipPath: `polygon(0 0, ${sliderPos}% 0, ${sliderPos}% 100%, 0 100%)` }}
+        >
+          <img
+            src="/antes-despues/antes.jpg"
+            alt="Estado Antes - Arboledacut"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Divider Line */}
+        <div
+          className="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_15px_rgba(16,185,129,0.9)] pointer-events-none z-20"
+          style={{ left: `${sliderPos}%` }}
+        >
+          {/* Knob Handle */}
+          <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-emerald-500 text-white shadow-2xl border-2 border-white flex items-center justify-center group-hover:scale-110 transition-transform">
+            <MoveHorizontal className="w-6 h-6 stroke-[2.5]" />
+          </div>
+        </div>
+
+        {/* Corner Badges */}
+        <div className="absolute top-4 left-4 z-10 px-4 py-1.5 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-white text-xs font-black uppercase tracking-widest shadow-xl pointer-events-none">
+          Antes
+        </div>
+        <div className="absolute top-4 right-4 z-10 px-4 py-1.5 rounded-full bg-emerald-600/90 backdrop-blur-md border border-emerald-400/40 text-white text-xs font-black uppercase tracking-widest shadow-xl pointer-events-none">
+          Después
+        </div>
+      </div>
+
+      {/* Floating Trust Badge */}
+      <motion.div
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md border border-emerald-200/80 rounded-2xl px-6 py-3.5 shadow-xl z-30 flex items-center gap-3 whitespace-nowrap"
+      >
+        <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600">
+          <Sparkles className="w-5 h-5" />
+        </div>
+        <div className="text-left">
+          <p className="text-sm font-extrabold text-slate-900">+50 Propiedades</p>
+          <p className="text-xs text-slate-500 font-medium">confían en nosotros</p>
+        </div>
+      </motion.div>
+
+      {/* Subtext instruction */}
+      <p className="text-center text-xs font-medium text-slate-400 mt-9 flex items-center justify-center gap-1.5">
+        <MoveHorizontal className="w-3.5 h-3.5 text-emerald-500" />
+        Desliza la barra para comparar el Antes y Después
+      </p>
+    </div>
+  );
+}
+
 export default function Showcase() {
   const { ref, isVisible } = useScrollReveal();
 
@@ -16,64 +134,14 @@ export default function Showcase() {
     <section className="py-24 lg:py-32 bg-white relative overflow-hidden" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left - Images */}
+          {/* Left - Before / After Interactive Slider */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isVisible ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <div className="rounded-2xl overflow-hidden shadow-lg">
-                  <img
-                    src="https://images.pexels.com/photos/8134746/pexels-photo-8134746.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=350&w=300"
-                    alt="Pool maintenance"
-                    className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="rounded-2xl overflow-hidden shadow-lg">
-                  <img
-                    src="https://images.pexels.com/photos/6195118/pexels-photo-6195118.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300"
-                    alt="Cleaning service"
-                    className="w-full h-40 object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              </div>
-              <div className="space-y-4 pt-8">
-                <div className="rounded-2xl overflow-hidden shadow-lg">
-                  <img
-                    src="https://images.pexels.com/photos/28180214/pexels-photo-28180214.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=300&w=300"
-                    alt="Garden care"
-                    className="w-full h-40 object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="rounded-2xl overflow-hidden shadow-lg">
-                  <img
-                    src="https://images.pexels.com/photos/29702290/pexels-photo-29702290.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=350&w=300"
-                    alt="Luxury pool"
-                    className="w-full h-48 object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Badge overlay */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 5, repeat: Infinity }}
-              className="absolute -bottom-6 left-1/2 -translate-x-1/2 glass-card rounded-2xl px-6 py-4 shadow-xl"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center text-2xl">
-                  ✨
-                </div>
-                <div>
-                  <p className="text-lg font-bold text-slate-800">+50 Propiedades</p>
-                  <p className="text-sm text-slate-500">confían en nosotros</p>
-                </div>
-              </div>
-            </motion.div>
+            <BeforeAfterSlider />
           </motion.div>
 
           {/* Right - Content */}
@@ -104,7 +172,9 @@ export default function Showcase() {
                   className="flex items-start gap-3 group"
                 >
                   <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                  <span className="text-slate-600 group-hover:text-slate-800 transition-colors">{feature}</span>
+                  <span className="text-slate-600 group-hover:text-slate-800 transition-colors font-medium">
+                    {feature}
+                  </span>
                 </motion.div>
               ))}
             </div>
@@ -114,7 +184,7 @@ export default function Showcase() {
               initial={{ opacity: 0 }}
               animate={isVisible ? { opacity: 1 } : {}}
               transition={{ delay: 0.8 }}
-              className="group inline-flex items-center gap-2 mt-10 px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-emerald-600/20 active:scale-95"
+              className="group inline-flex items-center gap-2 mt-10 px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-emerald-600/20 active:scale-95 text-base sm:text-lg shadow-md"
             >
               Quiero una Cotización
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
