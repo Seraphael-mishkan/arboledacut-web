@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { CheckCircle, ArrowRight, MoveHorizontal, Sparkles } from 'lucide-react';
+import { CheckCircle, ArrowRight, MoveHorizontal, Sparkles, TouchpadIcon as Touch } from 'lucide-react';
 
 const features = [
   'Equipo capacitado',
@@ -13,6 +13,7 @@ const features = [
 function BeforeAfterSlider() {
   const [sliderPos, setSliderPos] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleMove = useCallback((clientX: number) => {
@@ -20,13 +21,16 @@ function BeforeAfterSlider() {
     const rect = containerRef.current.getBoundingClientRect();
     const x = clientX - rect.left;
     let percentage = (x / rect.width) * 100;
-    if (percentage < 0) percentage = 0;
-    if (percentage > 100) percentage = 100;
+    if (percentage < 5) percentage = 5;
+    if (percentage > 95) percentage = 95;
     setSliderPos(percentage);
+    setHasInteracted(true);
   }, []);
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    handleMove(e.touches[0].clientX);
+    if (e.touches.length > 0) {
+      handleMove(e.touches[0].clientX);
+    }
   };
 
   useEffect(() => {
@@ -47,8 +51,34 @@ function BeforeAfterSlider() {
     };
   }, [isDragging, handleMove]);
 
+  // Gentle auto-hint animation on mobile scroll into view
+  useEffect(() => {
+    const timeout1 = setTimeout(() => {
+      if (!hasInteracted) setSliderPos(40);
+    }, 800);
+    const timeout2 = setTimeout(() => {
+      if (!hasInteracted) setSliderPos(60);
+    }, 1600);
+    const timeout3 = setTimeout(() => {
+      if (!hasInteracted) setSliderPos(50);
+    }, 2400);
+
+    return () => {
+      clearTimeout(timeout1);
+      clearTimeout(timeout2);
+      clearTimeout(timeout3);
+    };
+  }, [hasInteracted]);
+
   return (
-    <div className="relative w-full max-w-lg mx-auto">
+    <div className="relative w-full max-w-lg mx-auto pb-12 sm:pb-10">
+      {/* Mobile Top Instruction Banner (Exclusive for mobile) */}
+      <div className="sm:hidden mb-3 flex items-center justify-center gap-2 px-4 py-2 bg-emerald-600/90 text-white rounded-full shadow-md text-xs font-bold tracking-wide animate-pulse">
+        <Touch className="w-4 h-4" />
+        <span>TOCA Y DESLIZA LA LÍNEA PARA COMPARAR</span>
+        <MoveHorizontal className="w-4 h-4" />
+      </div>
+
       {/* Slider Box */}
       <div
         ref={containerRef}
@@ -62,7 +92,7 @@ function BeforeAfterSlider() {
         }}
         onTouchMove={handleTouchMove}
         onTouchEnd={() => setIsDragging(false)}
-        className="relative w-full h-[380px] sm:h-[450px] rounded-3xl overflow-hidden shadow-2xl border-2 border-emerald-500/20 cursor-ew-resize select-none group bg-slate-900"
+        className="relative w-full h-[360px] sm:h-[450px] rounded-3xl overflow-hidden shadow-2xl border-2 border-emerald-500/30 cursor-ew-resize select-none group bg-slate-900 touch-pan-y"
       >
         {/* AFTER Image (Background) */}
         <img
@@ -85,20 +115,25 @@ function BeforeAfterSlider() {
 
         {/* Divider Line */}
         <div
-          className="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_15px_rgba(16,185,129,0.9)] pointer-events-none z-20"
+          className="absolute top-0 bottom-0 w-1.5 bg-white shadow-[0_0_20px_rgba(16,185,129,1)] pointer-events-none z-20"
           style={{ left: `${sliderPos}%` }}
         >
-          {/* Knob Handle */}
-          <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-emerald-500 text-white shadow-2xl border-2 border-white flex items-center justify-center group-hover:scale-110 transition-transform">
-            <MoveHorizontal className="w-6 h-6 stroke-[2.5]" />
+          {/* Knob Handle with Pulsing Effect on Mobile */}
+          <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-13 h-13 sm:w-12 sm:h-12 rounded-full bg-emerald-500 text-white shadow-2xl border-2 border-white flex items-center justify-center group-hover:scale-110 transition-transform ring-4 ring-emerald-400/60 animate-pulse sm:animate-none">
+            <MoveHorizontal className="w-7 h-7 sm:w-6 sm:h-6 stroke-[3]" />
+          </div>
+
+          {/* Floating Pill on Line for Mobile */}
+          <div className="sm:hidden absolute top-1/4 -translate-x-1/2 bg-black/80 text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full border border-emerald-400/50 uppercase tracking-wider whitespace-nowrap shadow-lg">
+            ◀ DESLIZA ▶
           </div>
         </div>
 
         {/* Corner Badges */}
-        <div className="absolute top-4 left-4 z-10 px-4 py-1.5 rounded-full bg-black/75 backdrop-blur-md border border-white/20 text-white text-xs font-black uppercase tracking-widest shadow-xl pointer-events-none">
+        <div className="absolute top-4 left-4 z-10 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-white text-[11px] sm:text-xs font-black uppercase tracking-widest shadow-xl pointer-events-none">
           Antes
         </div>
-        <div className="absolute top-4 right-4 z-10 px-4 py-1.5 rounded-full bg-emerald-600/90 backdrop-blur-md border border-emerald-400/40 text-white text-xs font-black uppercase tracking-widest shadow-xl pointer-events-none">
+        <div className="absolute top-4 right-4 z-10 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-emerald-600/95 backdrop-blur-md border border-emerald-400/40 text-white text-[11px] sm:text-xs font-black uppercase tracking-widest shadow-xl pointer-events-none">
           Después
         </div>
       </div>
@@ -107,19 +142,19 @@ function BeforeAfterSlider() {
       <motion.div
         animate={{ y: [0, -6, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md border border-emerald-200/80 rounded-2xl px-6 py-3.5 shadow-xl z-30 flex items-center gap-3 whitespace-nowrap"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md border border-emerald-200/80 rounded-2xl px-5 py-2.5 sm:px-6 sm:py-3.5 shadow-xl z-30 flex items-center gap-3 whitespace-nowrap"
       >
-        <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600">
-          <Sparkles className="w-5 h-5" />
+        <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600">
+          <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
         </div>
         <div className="text-left">
-          <p className="text-sm font-extrabold text-slate-900">+50 Propiedades</p>
-          <p className="text-xs text-slate-500 font-medium">confían en nosotros</p>
+          <p className="text-xs sm:text-sm font-extrabold text-slate-900">+50 Propiedades</p>
+          <p className="text-[10px] sm:text-xs text-slate-500 font-medium">confían en nosotros</p>
         </div>
       </motion.div>
 
-      {/* Subtext instruction */}
-      <p className="text-center text-xs font-medium text-slate-400 mt-9 flex items-center justify-center gap-1.5">
+      {/* Desktop Subtext instruction */}
+      <p className="hidden sm:flex text-center text-xs font-medium text-slate-400 mt-6 items-center justify-center gap-1.5">
         <MoveHorizontal className="w-3.5 h-3.5 text-emerald-500" />
         Desliza la barra para comparar el Antes y Después
       </p>
@@ -131,9 +166,9 @@ export default function Showcase() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-24 lg:py-32 bg-white relative overflow-hidden" ref={ref}>
+    <section className="py-20 lg:py-32 bg-white relative overflow-hidden" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left - Before / After Interactive Slider */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
